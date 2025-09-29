@@ -1,0 +1,35 @@
+# pastikan di branch master
+git checkout -b master
+
+cat > index.html <<'HTML'
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <title>Aplikasi Sederhana</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header><h1>Aplikasi Sederhana</h1></header>
+  <nav>
+    <a href="login.html">Login</a> |
+    <a href="register.html">Register</a> |
+    <a href="dashboard.html">Dashboard</a>
+  </nav>
+  <main>
+    <p>Selamat datang di aplikasi sederhana versi HTML.</p>
+  </main>
+  <footer><small>&copy; Tim APK HTML</small></footer>
+</body>
+</html>
+HTML
+
+cat > styles.css <<'CSS'
+body{font-family:Arial,Helvetica,sans-serif;max-width:800px;margin:20px auto;padding:0 10px;}
+header h1{color:#2c3e50;}
+nav a{margin-right:8px;}
+CSS
+
+git add index.html styles.css
+git commit -m "2: Tambah halaman utama (index.html) dan styles.css"

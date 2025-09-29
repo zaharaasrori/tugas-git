@@ -1,0 +1,30 @@
+git checkout master    # kembali ke master sebagai base
+git checkout -b fitur-register
+
+cat > register.html <<'HTML'
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"/><title>Register</title><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="stylesheet" href="styles.css"/></head>
+<body>
+  <header><h1>Register</h1></header>
+  <main>
+    <form id="regForm" onsubmit="return false;">
+      <label>Username: <input type="text" id="rusername"></label><br/><br/>
+      <label>Password: <input type="password" id="rpassword"></label><br/><br/>
+      <button onclick="doRegister()">Daftar</button>
+    </form>
+    <p id="regmsg"></p>
+  </main>
+  <script>
+    function doRegister(){
+      const u = document.getElementById('rusername').value;
+      if(!u){ document.getElementById('regmsg').textContent = 'Isi username dulu'; return; }
+      document.getElementById('regmsg').textContent = 'User ' + u + ' berhasil terdaftar (simulasi)';
+    }
+  </script>
+</body>
+</html>
+HTML
+
+git add register.html
+git commit -m "4: Tambah halaman register (fitur-register)"
