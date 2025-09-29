@@ -1,0 +1,34 @@
+git checkout -b fitur-login
+
+cat > login.html <<'HTML'
+<!doctype html>
+<html lang="id">
+<head><meta charset="utf-8"/><title>Login</title><meta name="viewport" content="width=device-width,initial-scale=1"/><link rel="stylesheet" href="styles.css"/></head>
+<body>
+  <header><h1>Login</h1></header>
+  <main>
+    <form id="loginForm" onsubmit="return false;">
+      <label>Username: <input type="text" id="username"></label><br/><br/>
+      <label>Password: <input type="password" id="password"></label><br/><br/>
+      <button onclick="doLogin()">Masuk</button>
+    </form>
+    <p id="msg"></p>
+  </main>
+  <script>
+    function doLogin(){
+      const u = document.getElementById('username').value;
+      const p = document.getElementById('password').value;
+      if(u === 'admin' && p === '1234'){
+        document.getElementById('msg').textContent = 'Login sukses! Redirect ke dashboard...';
+        setTimeout(()=>location.href='dashboard.html',500);
+      } else {
+        document.getElementById('msg').textContent = 'Login gagal: coba admin / 1234';
+      }
+    }
+  </script>
+</body>
+</html>
+HTML
+
+git add login.html
+git commit -m "3: Tambah halaman login (fitur-login)"
